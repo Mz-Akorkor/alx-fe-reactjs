@@ -4,7 +4,7 @@ function WelcomeMessage() {
   return (
     <div>
       <h1>Hello everyone, I am learning React at ALX!</h1>
-      <p>Discover amazing destinations around the world.</p>
+      <p>I am learning about JSX!</p>
     </div>
   );
 }
