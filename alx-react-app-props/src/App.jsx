@@ -3,19 +3,24 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import WelcomeMessage from './components/WelcomeMessage';
-import UserProfile from './components/UserProfile';
 import ProfilePage from './ProfilePage';
-import { UserContext } from './UserContext'; 
+import { UserContext } from './UserContext';
 
 function App() {
-  const userData = {
-    name: "Jane Doe",
-    email: "jane.doe@example.com"
+  const userData = { 
+    name: "Jane Doe", 
+    email: "jane.doe@example.com" 
   };
 
   return (
     <UserContext.Provider value={userData}>
-      <ProfilePage />
+      <div>
+        <WelcomeMessage />
+        <Header />
+        <MainContent />
+        <ProfilePage />
+        <Footer />
+      </div>
     </UserContext.Provider>
   );
 }
