@@ -1,18 +1,14 @@
 import axios from "axios";
 
-const advancedSearchUsers = async (username, location, minRepos, page = 1) => {
+export async function fetchAdvancedUsers(username, location, minRepos) {
   let query = "";
 
-  if (username) query += `${username} `;
+  if (username) query += `${username} in:login `;
   if (location) query += `location:${location} `;
-  if (minRepos) query += `repos:>=${minRepos} `;
+  if (minRepos) query += `repos:>${minRepos}`;
 
-  const url = `https://api.github.com/search/users?q=${encodeURIComponent(
-    query
-  )}&page=${page}&per_page=10`;
+  const url = `https://api.github.com/search/users?q=${query}`;
 
   const response = await axios.get(url);
-  return response.data;
-};
-
-export default advancedSearchUsers;
+  return response.data.items;
+}
